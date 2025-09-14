@@ -66,11 +66,14 @@ function App() {
 
   function addEntity(number=1){
     const name = prompt("Enter the name of the entity:", "Entity");
+    if (!name) return;
     const newEntity = {name: name, id: Date.now(), dmg: {1: 0}, maxHP: -1, initiative: 0, iniBonus: 0, number: number, alive: true, current: false};
     const iniBonus = parseInt(prompt("Enter the initiative bonus of " + name + ":", "0"));
+    if (!iniBonus && iniBonus !== 0) return;
     newEntity.iniBonus = iniBonus;
     if (options.maxHPEnabled){
       const maxHp = parseInt(prompt("Enter the max HP of " + name + ":", "10"));
+      if (!maxHp && maxHp !== 0) return;
       newEntity.maxHP = maxHp;
     }
     if (number > 1){
@@ -90,6 +93,7 @@ function App() {
           for (let i = 1; i <= number; i++) {
             const entityCopy = {...newEntity};
             const initiative = parseInt(prompt("Enter the initiative roll of " + name + ":", "0"));
+            if (!initiative && initiative !== 0) return
             entityCopy.initiative = initiative;
             entityCopy.id = Date.now() + i;
             entityCopy.number = 1;
@@ -142,7 +146,7 @@ function App() {
 
   return (
     <>
-    <header className='py-3 flex flex-row justify-center bg-slate-300 gap-2'>
+    <header className='py-3 flex flex-row justify-center bg-slate-300 gap-2 flex-wrap'>
       <TopBar options={options} setOptions={setOptions} addEntity={addEntity} turnCount={turnCount} nextTurn={turnAndSet} clear={clearAll}/>
     </header>
     <main>

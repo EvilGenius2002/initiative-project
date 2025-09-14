@@ -3,7 +3,7 @@ import { Dropdown } from "./Dropdown"
 export default function Entity({ent, close, update, updateHP}) {
     const {name, initiative, id, number=1, dmg={1:0}, maxHP, alive, current} = ent
 
-    var classes = 'flex flex-row border border-gray-700 rounded-full h-20 w-fit duration-150 items-center alig-middle '
+    var classes = 'flex flex-row border border-gray-700 rounded-full min-h-20 w-fit duration-150 items-center alig-middle '
     var buttonClasses = 'h-20 w-20 text-center text-4xl font-bold border-gray-700 hover:border box-border  '
     var inputIniClasses = 'h-20 w-20 text-center text-4xl font-bold text-green-900 rounded-l-full '
     var inputDmgClasses = 'h-20 w-20 text-center text-4xl font-bold text-red-600 '
@@ -47,7 +47,7 @@ export default function Entity({ent, close, update, updateHP}) {
     return (
         <li className={`${classes}`}>
             <input className= {`${inputIniClasses}`} type="number" defaultValue={initiative} onBlur={(e) => update(e.target.value, id, "initiative")}/>
-            <h3 className="text-2xl font-bold h-min"><span className="text-3xl text-amber-900 mx-1">{name}</span> Damage taken:</h3>
+            <h3 className="text-xl font-bold h-min sm:text-2xl text-center"><span className="text-xl text-amber-900 sm:text-3xl mx-1">{name}</span> Damage taken:</h3>
             <input className={`${inputDmgClasses}`} type="number" defaultValue={dmg[1]} onBlur={(e) => updateHP(e.target.value, id, 1)}/>
             <button onClick={() => close(id)} className= {`${buttonClasses + ' rounded-r-full'}`} >X</button>
         </li>

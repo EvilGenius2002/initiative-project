@@ -42,7 +42,7 @@ function DropdownButton({children, classes, ...props}) {
   }
 
   return(
-      <button onClick={toggleOpen} className= {("px-4 py-2 text-4xl text-white bg-gray-500 flex items-center font-bold cursor-pointer hover:shadow hover:shadow-amber-500 ") + `${ open ? "rounded-t-xl " : "rounded-xl "} duration-100`} {...props}>
+      <button onClick={toggleOpen} className= {("px-4 py-2 text-xl text-white bg-gray-500 flex items-center font-bold cursor-pointer hover:shadow hover:shadow-amber-500 lg:text-3xl ") + `${ open ? "rounded-t-xl " : "rounded-xl "} duration-100`} {...props}>
           {children}
       </button>
   )
@@ -52,7 +52,7 @@ function DropdownContent({ children }) {
   const { open } = useContext(DropdownContext);
   
   return (
-    <div className={`absolute z-20 rounded-b-2xl rounded-tr-2xl bg-stone-300 overflow-hidden w-max overflow-y-auto ${ open ? "shadow-md" : "hidden"}`}>
+    <div className={`fixed z-20 left-0 w-full sm:w-sm sm:absolute sm:-left-6 rounded-2xl rounded-b-2xl rounded-tr-2xl bg-stone-300 overflow-hidden overflow-y-auto xl:w-max ${ open ? "shadow-md" : "hidden"}`}>
       { children }
     </div>
   );
@@ -67,10 +67,10 @@ function DropdownList({ children, ...props }) {
   );
 };
 
-function DropdownItem({click = () => console.log('nthng'), children, ...props }) {
+function DropdownItem({click = () => console.log('nothng'), children, ...props }) {
   return (
-    <li>
-      <button onClick={() => click()} className="py-3 px-5 whitespace-nowrap hover:underline" {...props}>{ children }</button> 
+    <li className="flex flex-row justify-center">
+      <button onClick={() => click()} className="w-full py-3 px-5 whitespace-nowrap hover:underline text-xl" {...props}>{ children }</button> 
     </li>
   );
 };
@@ -80,7 +80,7 @@ function DropdownSwitch({label='Option Label', name = 'Option', enabled = false,
       <li>
         <div className="flex items-center justify-between py-3 px-5">
           <label className="mr-3 text-xl hover:underline" htmlFor={name}>{label}</label>
-          <input type="checkbox" checked={options[name]} id={name} onChange={() => toggle(name)} className="h-5 w-5" {...props}/>
+          <input type="checkbox" checked={options[name]} id={name} onChange={() => toggle(name)} className="size-[10px]" {...props}/>
         </div>
       </li>
     )

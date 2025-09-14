@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/initiative-project",
   plugins: [react(), tailwindcss(), VitePWA({
     registerType: 'autoUpdate',
     injectRegister: false,

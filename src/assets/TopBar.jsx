@@ -29,7 +29,7 @@ export default function TopBar({addEntity, turnCount, nextTurn, options, setOpti
             </Dropdown.List>
         </Dropdown.Content>
     </Dropdown>
-    <button className="rounded-xl text-3xl px-4 py-2 text-white bg-gray-500 flex items-center font-bold cursor-pointer duration-100 hover:shadow hover:shadow-amber-500" onClick={() => nextTurn()}>Turn: {turnCount}</button>
-    <button className="rounded-xl text-3xl px-4 py-2 text-white bg-gray-500 flex items-center font-bold cursor-pointer duration-100 hover:shadow hover:shadow-amber-500" onClick={() => clear()}>Clear</button>
+    <button className="rounded-xl text-xl px-4 py-2 text-white bg-gray-500 flex items-center font-bold cursor-pointer duration-100 hover:shadow hover:shadow-amber-500 lg:text-3xl" onClick={() => nextTurn()}>Turn: {turnCount}</button>
+    <button className="rounded-xl text-xl px-4 py-2 text-white bg-gray-500 flex items-center font-bold cursor-pointer duration-100 hover:shadow hover:shadow-amber-500 lg:text-3xl" onClick={() => clear()}>Clear</button>
     </>)
 }
